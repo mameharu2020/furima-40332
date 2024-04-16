@@ -4,7 +4,7 @@
 
 |Column|Type|Options|
 |-|-|-|
-|nickname|string|null: false, unique: true|
+|nickname|string|null: false|
 |email|string|null: false, unique: true|
 |encrypted_password|string|null: false|
 |family_name|string|null: false|
@@ -30,7 +30,7 @@
 |prefecture_id|integer|null: false|
 |shipping_date_id|integer|null: false|
 |price|integer|null: false|
-|user_id|integer|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
 
 ### Association
 
@@ -41,8 +41,8 @@
 
 |Column|Type|Options|
 |-|-|-|
-|user_id|references|null: false, foreign_key: true|
-|item_id|references|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
+|item|references|null: false, foreign_key: true|
 
 ### Association
 
@@ -54,9 +54,9 @@
 
 |Column|Type|Options|
 |-|-|-|
-|order_id|references|null: false, foreign_key: true|
+|order|references|null: false, foreign_key: true|
 |postcode|string|null: false|
-|prefecture_id|string|null: false|
+|prefecture_id|integer|null: false|
 |city|string|null: false|
 |block|string|null: false|
 |building|string||
