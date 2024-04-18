@@ -1,0 +1,15 @@
+
+[1mFrom:[0m /home/ayako/projects/furima-40332/spec/models/user_spec.rb:68 :
+
+    [1;34m63[0m:         expect(@user.errors.full_messages).to include([31m[1;31m"[0m[31mPassword confirmation doesn't match Password[1;31m"[0m[31m[0m)
+    [1;34m64[0m:       [32mend[0m
+    [1;34m65[0m:       it [31m[1;31m"[0m[31mfamily_nameが空では登録できない[1;31m"[0m[31m[0m [32mdo[0m
+    [1;34m66[0m:         @user.family_name = [31m[1;31m'[0m[31m[1;31m'[0m[31m[0m
+    [1;34m67[0m:         @user.valid?
+ => [1;34m68[0m:         binding.pry
+    [1;34m69[0m:         expect(@user.errors.full_messages).to include([31m[1;31m"[0m[31mPassword can't be blank[1;31m"[0m[31m[0m)
+    [1;34m70[0m:       [32mend[0m
+    [1;34m71[0m:     [32mend[0m
+    [1;34m72[0m:   [32mend[0m
+    [1;34m73[0m: [32mend[0m
+
