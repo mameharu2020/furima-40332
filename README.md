@@ -31,6 +31,7 @@
 |shipping_date_id|integer|null: false|
 |price|integer|null: false|
 |user|references|null: false, foreign_key: true|
+|order|references|foreign_key: true|
 
 ### Association
 
