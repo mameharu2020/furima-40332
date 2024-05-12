@@ -60,4 +60,5 @@ class ItemsController < ApplicationController
   def require_owner
     redirect_to root_path unless @item.user == current_user
   end
+
 end

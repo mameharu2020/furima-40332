@@ -1,5 +1,7 @@
 class OrdersController < ApplicationController
   before_action :set_item, only: [:index, :create]
+  before_action :check_sold_out, only: [:index]
+  before_action :move_to_new_user_session, only: [:index]
   
   def index
     gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
@@ -36,4 +38,15 @@ class OrdersController < ApplicationController
         currency: 'jpy'
       )
   end
+
+  def check_sold_out
+    if @item.sold_out? || @item.user == current_user
+      redirect_to root_path
+    end
+  end
+
+  def move_to_new_user_session
+    return if current_user
+    redirect_to new_user_session_path unless user_signed_in?
+  end 
 end
