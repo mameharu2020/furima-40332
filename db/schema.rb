@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_05_05_115300) do
+ActiveRecord::Schema[7.0].define(version: 2024_07_14_043553) do
   create_table "active_storage_attachments", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -76,6 +76,15 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_05_115300) do
     t.index ["order_id"], name: "index_shipping_addresses_on_order_id"
   end
 
+  create_table "sns_credentials", charset: "utf8", force: :cascade do |t|
+    t.string "provider"
+    t.string "uid"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sns_credentials_on_user_id"
+  end
+
   create_table "users", charset: "utf8", force: :cascade do |t|
     t.string "nickname", null: false
     t.string "email", default: "", null: false
@@ -100,4 +109,5 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_05_115300) do
   add_foreign_key "orders", "items"
   add_foreign_key "orders", "users"
   add_foreign_key "shipping_addresses", "orders"
+  add_foreign_key "sns_credentials", "users"
 end
